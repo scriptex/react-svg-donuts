@@ -1,0 +1,41 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directory
+node_modules/
+
+# Misc
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Source directory
+/src
+
+# Example directory
+/example
+
+# EditorConfig
+.editorconfig
+
+# Git
+.gitignore
+.gitattributes
+
+# CI
+.travis.yml
+
+# lock files
+yarn.lock
+
+# Settings
+.babelrc
+webpack.config.js
