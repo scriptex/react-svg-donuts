@@ -10,6 +10,11 @@
     "build": "babel src -d dist --copy-files"
   },
   "author": "Atanas Atanasov <scriptex.bg@gmail.com> (https://atanas.info)",
+  "repository": "https://github.com/scriptex/react-svg-donuts",
+  "bugs": {
+    "url": "https://github.com/scriptex/react-svg-donuts/issues",
+    "email": "scriptex.bg@gmail.com"
+  },
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "7.1.2",
