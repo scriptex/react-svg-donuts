@@ -39,3 +39,4 @@ yarn.lock
 # Settings
 .babelrc
 webpack.config.js
+renovate.json
