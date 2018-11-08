@@ -33,8 +33,6 @@ $ npm i react-svg-donuts
 $ yarn add react-svg-donuts
 ```
 
-Or [download it](https://github.com/scriptex/react-svg-donuts/archive/master.zip) directly from the repo
-
 Then
 
 ```javascript
