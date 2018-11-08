@@ -56,8 +56,87 @@ render(
 
 1. `progress: number (required)` - should be between 0 and 100 and represent the amount of the donut that should be filled. Works with negative values too (between -100 and 0).
 2. `onRender: function (required)` - any function which returns a valid React node (either React element or null).
-
 3. `prefix: string (optional)` - a string which will be used as prefix for all CSS classnames. Defaults to `donut`.
+
+## CSS
+
+There is a predefined stylesheet which can be used as is.
+If you want it, just import it:
+
+```css
+@import 'react-svg-donuts/dist/index.css';
+```
+
+## Bonus - Complex Donut
+
+```javascript
+import React from 'react';
+import { render } from 'react-dom';
+
+import ComplexDonut from 'react-svg-donuts/complex';
+
+render(
+	<ComplexDonut
+		size={200}
+		radius={80}
+		segments={[
+			{
+				color: '#FF8A80',
+				value: 230
+			},
+			{
+				color: '#FF80AB',
+				value: 308
+			},
+			{
+				color: '#B9F6CA',
+				value: 520
+			},
+			{
+				color: '#B388FF',
+				value: 130
+			},
+			{
+				color: '#8C9EFF',
+				value: 200
+			}
+		]}
+		thickness={40}
+		startAngle={-90}
+	/>,
+	document.getElementById('demo')
+);
+```
+
+## Props
+
+1. `size: number (required)` - The size of the donut (width and height).
+2. `radius: number (required)` - The radius of the donut.
+3. `segments: array (required)` - An array of donut segments with the following shape:
+    ```javascript
+    [
+    	{
+    		value: 10,
+    		color: '#BADA55'
+    	},
+    	{
+    		value: 20,
+    		color: '#CCDDEE'
+    	}
+    ];
+    ```
+4. `thickness: number (required)` - A number for the thickness of the donut
+5. `startAngle: number (required)` - A degree between -360 and 360
+6. `className: string (optional)` - Well, a custom css class name
+
+## CSS
+
+There is a predefined stylesheet which can be used as is.
+If you want it, just import it:
+
+```css
+@import 'react-svg-donuts/dist/complex.css';
+```
 
 ## LICENSE
 
