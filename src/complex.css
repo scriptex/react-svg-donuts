@@ -1,0 +1,18 @@
+.donut-complex text {
+	font-family: sans-serif;
+	font-size: 0.75rem;
+	opacity: 0;
+	transition: opacity 0.35s ease-in-out 1s;
+}
+
+.donut-complex circle {
+	transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.donut-complex:not(.donut-complex--loaded) circle {
+	stroke-dashoffset: 0;
+}
+
+.donut-complex--loaded text {
+	opacity: 1;
+}

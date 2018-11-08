@@ -1,8 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 let rotateAngle = 0;
 
+import './complex.css';
+
 class ComplexDonut extends React.Component {
+	loadTimeout = 0;
+
 	constructor(props) {
 		super(props);
 
@@ -10,7 +15,8 @@ class ComplexDonut extends React.Component {
 			total: this.total(props.segments),
 			colors: ['#FF8A80', '#FF80AB', '#B9F6CA', '#B388FF', '#8C9EFF'],
 			segments: [],
-			transforms: this.transforms()
+			transforms: this.transforms(),
+			isLoaded: false
 		};
 	}
 
@@ -19,7 +25,7 @@ class ComplexDonut extends React.Component {
 	percent = (value, total) => value / total;
 
 	transforms = () => {
-		const transforms = [];
+		const rotations = [];
 		const textCoords = [];
 		const { startAngle, segments } = this.props;
 		const total = this.total(segments);
@@ -29,39 +35,70 @@ class ComplexDonut extends React.Component {
 		this.sortValues(segments).forEach(segment => {
 			const data = rotateAngle;
 			const percent = this.percent(segment, total);
+			const { x, y } = this.textCoordinates(segment, rotateAngle);
 
-			transforms.push(data);
+			rotations.push(data);
+			textCoords.push({ x, y });
 
-			const value = transforms[transforms.length - 1] || startAngle;
+			const value = rotations[rotations.length - 1] || startAngle;
 
 			rotateAngle = percent * 360 + value;
 		});
 
-		return transforms;
+		return { rotations, textCoords };
 	};
 
 	sortValues = values => values.sort((a, b) => b - a);
 
 	circumference = radius => 2 * Math.PI * radius;
 
+	degreesToRadians = angle => angle * (Math.PI / 180);
+
 	strokeDashOffset = (value, circumference) => {
 		const diff = this.percent(value, this.state.total) * circumference;
 		return circumference - diff;
 	};
 
+	textCoordinates = (value, angleOffset) => {
+		const { size, radius, segments } = this.props;
+		const total = this.total(segments);
+		const angle = (this.percent(value, total) * 360) / 2 + angleOffset;
+		const radians = this.degreesToRadians(angle);
+
+		return {
+			x: radius * Math.cos(radians) + size / 2,
+			y: radius * Math.sin(radians) + size / 2
+		};
+	};
+
 	componentDidMount = () => {
 		const { segments, size } = this.props;
-		const { total, colors, transforms } = this.state;
+		const {
+			total,
+			colors,
+			transforms: { rotations, textCoords }
+		} = this.state;
 
 		this.setState({
 			segments: this.sortValues(segments).map((segment, i) => ({
 				value: segment,
 				color: colors[i],
 				percent: this.percent(segment, total),
-				rotate: `rotate(${transforms[i]}, ${size / 2}, ${size / 2})`
+				rotate: `rotate(${rotations[i]}, ${size / 2}, ${size / 2})`,
+				textCoords: textCoords[i]
 			}))
 		});
+
+		this.loadTimeout = setTimeout(() => {
+			this.setState({
+				isLoaded: true
+			});
+		}, 100);
 	};
+
+	componentWillUnmount() {
+		this.clearTimeout(this.loadTimeout);
+	}
 
 	render() {
 		const { size, radius, thickness } = this.props;
@@ -69,30 +106,59 @@ class ComplexDonut extends React.Component {
 		const circumference = this.circumference(radius);
 
 		return (
-			<svg height="160" width="160" viewBox="0 0 160 160">
-				{this.state.segments.map((segment, i) => (
-					<g key={i}>
-						<circle
-							r={radius}
-							cx={halfSize}
-							cy={halfSize}
-							fill="none"
-							transform={segment.rotate}
-							stroke={segment.color}
-							strokeWidth={thickness}
-							strokeDasharray={circumference}
-							strokeDashoffset={this.strokeDashOffset(
-								segment.value,
-								circumference
-							)}
-						/>
-						<text>{segment.percent * 100}%</text>
-					</g>
-				))}
-			</svg>
+			<div
+				className={`donut-complex${
+					this.state.isLoaded ? ' donut-complex--loaded' : ''
+				}`}
+			>
+				<svg height={size} width={size} viewBox={`0 0 ${size} ${size}`}>
+					{this.state.segments.map((segment, i) => (
+						<g key={i}>
+							<circle
+								r={radius}
+								cx={halfSize}
+								cy={halfSize}
+								fill="none"
+								transform={segment.rotate}
+								stroke={segment.color}
+								strokeWidth={thickness}
+								strokeDasharray={circumference}
+								strokeDashoffset={this.strokeDashOffset(
+									segment.value,
+									circumference
+								)}
+							/>
+							<text
+								x={segment.textCoords.x}
+								y={segment.textCoords.y}
+								dy="3px"
+								textAnchor="middle"
+							>
+								{`${Math.round(segment.percent * 100)}%`}
+							</text>
+						</g>
+					))}
+				</svg>
+			</div>
 		);
 	}
 }
+
+ComplexDonut.propTypes = {
+	size: PropTypes.number,
+	radius: PropTypes.number,
+	segments: PropTypes.array,
+	thickness: PropTypes.number,
+	startAngle: PropTypes.number
+};
+
+ComplexDonut.defaultProps = {
+	size: 160,
+	radius: 60,
+	segments: [],
+	thickness: 30,
+	startAngle: -90
+};
 
 export { ComplexDonut };
 export default ComplexDonut;
