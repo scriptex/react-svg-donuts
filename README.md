@@ -9,7 +9,10 @@
 
 # React SVG Donuts
 
-A ReactJS component for simple SVG donuts.
+A ReactJS component for simple (and complex) SVG donuts.
+
+## Demo
+TL;DR [here is the demo](https://codepen.io/scriptex/pen/qJvaMe)
 
 ## Dependencies
 
