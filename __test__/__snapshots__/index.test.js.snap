@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Donuts should render a complex donut 1`] = `
+<div
+  className="donut-complex "
+>
+  <svg
+    height={200}
+    viewBox="0 0 200 200"
+    width={200}
+  >
+    <g>
+      <circle
+        cx={100}
+        cy={100}
+        r={80}
+        stroke="#B9F6CA"
+        strokeDasharray={502.6548245743669}
+        strokeDashoffset={314.34033698166456}
+        strokeWidth={40}
+        transform="rotate(-90, 100, 100)"
+      />
+      <text
+        dy="3px"
+        textAnchor="middle"
+        x={173.8756687233046}
+        y={69.30170085029867}
+      >
+        37%
+      </text>
+    </g>
+    <g>
+      <circle
+        cx={100}
+        cy={100}
+        r={80}
+        stroke="#FF80AB"
+        strokeDasharray={502.6548245743669}
+        strokeDashoffset={391.11470500022784}
+        strokeWidth={40}
+        transform="rotate(44.87031700288185, 100, 100)"
+      />
+      <text
+        dy="3px"
+        textAnchor="middle"
+        x={107.23297432334213}
+        y={179.6723545681805}
+      >
+        22%
+      </text>
+    </g>
+    <g>
+      <circle
+        cx={100}
+        cy={100}
+        r={80}
+        stroke="#FF8A80"
+        strokeDasharray={502.6548245743669}
+        strokeDashoffset={419.3618781391332}
+        strokeWidth={40}
+        transform="rotate(124.75504322766571, 100, 100)"
+      />
+      <text
+        dy="3px"
+        textAnchor="middle"
+        x={27.74388100642821}
+        y={134.33734509228682}
+      >
+        17%
+      </text>
+    </g>
+    <g>
+      <circle
+        cx={100}
+        cy={100}
+        r={80}
+        stroke="#8C9EFF"
+        strokeDasharray={502.6548245743669}
+        strokeDashoffset={430.22617550025063}
+        strokeWidth={40}
+        transform="rotate(184.4092219020173, 100, 100)"
+      />
+      <text
+        dy="3px"
+        textAnchor="middle"
+        x={30.96065702741309}
+        y={59.582564134849996}
+      >
+        14%
+      </text>
+    </g>
+    <g>
+      <circle
+        cx={100}
+        cy={100}
+        r={80}
+        stroke="#B388FF"
+        strokeDasharray={502.6548245743669}
+        strokeDashoffset={455.5762026761913}
+        strokeWidth={40}
+        transform="rotate(236.28242074927954, 100, 100)"
+      />
+      <text
+        dy="3px"
+        textAnchor="middle"
+        x={76.79888609122719}
+        y={23.43820591579538}
+      >
+        9%
+      </text>
+    </g>
+  </svg>
+</div>
+`;
+
+exports[`Donuts should render a simple donut with custom props 1`] = `
+<div
+  className="donut"
+>
+  <svg
+    className="donut__canvas"
+    height={34}
+    viewBox="0 0 34 34"
+    width={34}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      className="donut__frame"
+      cx={17}
+      cy={17}
+      r={16}
+    />
+    <circle
+      className="donut__circle"
+      cx={17}
+      cy={17}
+      r={16}
+      strokeDasharray="50 100"
+    />
+  </svg>
+  <div
+    className="donut__text"
+  >
+    <strong>
+      50
+      %
+    </strong>
+  </div>
+</div>
+`;
+
+exports[`Donuts should render simple donut with default props 1`] = `
+<div
+  className="donut"
+>
+  <svg
+    className="donut__canvas"
+    height={34}
+    viewBox="0 0 34 34"
+    width={34}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      className="donut__frame"
+      cx={17}
+      cy={17}
+      r={16}
+    />
+    <circle
+      className="donut__circle"
+      cx={17}
+      cy={17}
+      r={16}
+      strokeDasharray="0 100"
+    />
+  </svg>
+  <div
+    className="donut__text"
+  >
+    <strong>
+      0
+    </strong>
+  </div>
+</div>
+`;
