@@ -13,14 +13,13 @@ class ComplexDonut extends React.Component {
 
 		this.state = {
 			total: this.total(props.segments),
-			colors: ['#FF8A80', '#FF80AB', '#B9F6CA', '#B388FF', '#8C9EFF'],
 			segments: [],
 			transforms: this.transforms(),
 			isLoaded: false
 		};
 	}
 
-	total = values => values.reduce((acc, val) => acc + val);
+	total = values => values.reduce((acc, { value }) => acc + value, 0);
 
 	percent = (value, total) => value / total;
 
@@ -32,23 +31,23 @@ class ComplexDonut extends React.Component {
 
 		rotateAngle = startAngle;
 
-		this.sortValues(segments).forEach(segment => {
+		this.sortValues(segments).forEach(({ value }) => {
 			const data = rotateAngle;
-			const percent = this.percent(segment, total);
-			const { x, y } = this.textCoordinates(segment, rotateAngle);
+			const percent = this.percent(value, total);
+			const { x, y } = this.textCoordinates(value, rotateAngle);
 
 			rotations.push(data);
 			textCoords.push({ x, y });
 
-			const value = rotations[rotations.length - 1] || startAngle;
+			const result = rotations[rotations.length - 1] || startAngle;
 
-			rotateAngle = percent * 360 + value;
+			rotateAngle = percent * 360 + result;
 		});
 
 		return { rotations, textCoords };
 	};
 
-	sortValues = values => values.sort((a, b) => b - a);
+	sortValues = values => values.sort((a, b) => b.value - a.value);
 
 	circumference = radius => 2 * Math.PI * radius;
 
@@ -75,15 +74,14 @@ class ComplexDonut extends React.Component {
 		const { segments, size } = this.props;
 		const {
 			total,
-			colors,
 			transforms: { rotations, textCoords }
 		} = this.state;
 
 		this.setState({
-			segments: this.sortValues(segments).map((segment, i) => ({
-				value: segment,
-				color: colors[i],
-				percent: this.percent(segment, total),
+			segments: this.sortValues(segments).map(({ value, color }, i) => ({
+				value,
+				color,
+				percent: this.percent(value, total),
 				rotate: `rotate(${rotations[i]}, ${size / 2}, ${size / 2})`,
 				textCoords: textCoords[i]
 			}))
@@ -101,15 +99,15 @@ class ComplexDonut extends React.Component {
 	}
 
 	render() {
-		const { size, radius, thickness } = this.props;
+		const { size, radius, thickness, className } = this.props;
 		const halfSize = size / 2;
 		const circumference = this.circumference(radius);
 
 		return (
 			<div
 				className={`donut-complex${
-					this.state.isLoaded ? ' donut-complex--loaded' : ''
-				}`}
+					this.state.isLoaded ? ' donut-complex--loaded ' : ' '
+				}${className}`}
 			>
 				<svg height={size} width={size} viewBox={`0 0 ${size} ${size}`}>
 					{this.state.segments.map((segment, i) => (
@@ -118,7 +116,6 @@ class ComplexDonut extends React.Component {
 								r={radius}
 								cx={halfSize}
 								cy={halfSize}
-								fill="none"
 								transform={segment.rotate}
 								stroke={segment.color}
 								strokeWidth={thickness}
@@ -145,11 +142,17 @@ class ComplexDonut extends React.Component {
 }
 
 ComplexDonut.propTypes = {
-	size: PropTypes.number,
-	radius: PropTypes.number,
-	segments: PropTypes.array,
-	thickness: PropTypes.number,
-	startAngle: PropTypes.number
+	size: PropTypes.number.isRequired,
+	radius: PropTypes.number.isRequired,
+	segments: PropTypes.arrayOf(
+		PropTypes.shape({
+			color: PropTypes.string,
+			value: PropTypes.number
+		})
+	).isRequired,
+	thickness: PropTypes.number.isRequired,
+	startAngle: PropTypes.number,
+	className: PropTypes.string
 };
 
 ComplexDonut.defaultProps = {
@@ -157,7 +160,8 @@ ComplexDonut.defaultProps = {
 	radius: 60,
 	segments: [],
 	thickness: 30,
-	startAngle: -90
+	startAngle: -90,
+	className: ''
 };
 
 export { ComplexDonut };

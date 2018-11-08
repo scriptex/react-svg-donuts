@@ -20,7 +20,28 @@ render(
 	<ComplexDonut
 		size={200}
 		radius={80}
-		segments={[230, 308, 520, 130, 200]}
+		segments={[
+			{
+				color: '#FF8A80',
+				value: 230
+			},
+			{
+				color: '#FF80AB',
+				value: 308
+			},
+			{
+				color: '#B9F6CA',
+				value: 520
+			},
+			{
+				color: '#B388FF',
+				value: 130
+			},
+			{
+				color: '#8C9EFF',
+				value: 200
+			}
+		]}
 		thickness={40}
 		startAngle={-90}
 	/>,

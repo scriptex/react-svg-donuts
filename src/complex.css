@@ -1,11 +1,14 @@
 .donut-complex text {
-	font-family: sans-serif;
-	font-size: 0.75rem;
+	font-family: monospace;
+	font-size: 1rem;
+	font-weight: bold;
+	text-shadow: 0 0 0.5rem #fff;
 	opacity: 0;
 	transition: opacity 0.35s ease-in-out 1s;
 }
 
 .donut-complex circle {
+	fill: none;
 	transition: stroke-dashoffset 1s ease-in-out;
 }
 
