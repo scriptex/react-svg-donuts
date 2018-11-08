@@ -14,16 +14,15 @@ const Donuts = _ => (
 	</React.Fragment>
 );
 
+render(<Donuts />, document.getElementById('demo1'));
+
 render(
-	<React.Fragment>
-		<Donuts />
-		<ComplexDonut
-			size={160}
-			radius={60}
-			segments={[230, 308, 520, 130, 200]}
-			thickness={30}
-			startAngle={-90}
-		/>
-	</React.Fragment>,
-	document.getElementById('demo')
+	<ComplexDonut
+		size={200}
+		radius={80}
+		segments={[230, 308, 520, 130, 200]}
+		thickness={40}
+		startAngle={-90}
+	/>,
+	document.getElementById('demo2')
 );
