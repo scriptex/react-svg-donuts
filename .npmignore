@@ -17,12 +17,6 @@ node_modules/
 ehthumbs.db
 Thumbs.db
 
-# Source directory
-/src
-
-# Example directory
-/example
-
 # EditorConfig
 .editorconfig
 
@@ -36,7 +30,11 @@ Thumbs.db
 # lock files
 yarn.lock
 
-# Settings
+# Prettier
+.prettierrc
+.prettierignore
+
+# Config files
 .babelrc
-webpack.config.js
 renovate.json
+webpack.config.js
