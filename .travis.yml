@@ -1,8 +1,9 @@
 language: node_js
 sudo: false
 node_js:
-  - '8.9.4'
+    - '8.9.4'
 install:
-  - yarn
+    - yarn
 script:
-  - yarn build
+    - yarn build
+    - yarn test
