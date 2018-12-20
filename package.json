@@ -1,6 +1,6 @@
 {
 	"name": "react-svg-donuts",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "A ReactJS component for simple SVG donut graphs.",
 	"main": "dist/index.js",
 	"style": "dist/index.css",
