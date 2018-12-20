@@ -99,20 +99,17 @@ class ComplexDonut extends React.Component {
 	}
 
 	render() {
-		const { size, radius, thickness, className } = this.props;
+		const { size, radius, thickness, className, circleProps, textProps } = this.props;
 		const halfSize = size / 2;
 		const circumference = this.circumference(radius);
 
 		return (
-			<div
-				className={`donut-complex${
-					this.state.isLoaded ? ' donut-complex--loaded ' : ' '
-				}${className}`}
-			>
+			<div className={`donut-complex${this.state.isLoaded ? ' donut-complex--loaded ' : ' '}${className}`}>
 				<svg height={size} width={size} viewBox={`0 0 ${size} ${size}`}>
 					{this.state.segments.map((segment, i) => (
 						<g key={i}>
 							<circle
+								{...circleProps}
 								r={radius}
 								cx={halfSize}
 								cy={halfSize}
@@ -120,12 +117,10 @@ class ComplexDonut extends React.Component {
 								stroke={segment.color}
 								strokeWidth={thickness}
 								strokeDasharray={circumference}
-								strokeDashoffset={this.strokeDashOffset(
-									segment.value,
-									circumference
-								)}
+								strokeDashoffset={this.strokeDashOffset(segment.value, circumference)}
 							/>
 							<text
+								{...textProps}
 								x={segment.textCoords.x}
 								y={segment.textCoords.y}
 								dy="3px"
@@ -152,7 +147,9 @@ ComplexDonut.propTypes = {
 	).isRequired,
 	thickness: PropTypes.number.isRequired,
 	startAngle: PropTypes.number,
-	className: PropTypes.string
+	className: PropTypes.string,
+	circleProps: PropTypes.object,
+	textProps: PropTypes.object
 };
 
 ComplexDonut.defaultProps = {
@@ -161,7 +158,9 @@ ComplexDonut.defaultProps = {
 	segments: [],
 	thickness: 30,
 	startAngle: -90,
-	className: ''
+	className: '',
+	circleProps: {},
+	textProps: {}
 };
 
 export { ComplexDonut };

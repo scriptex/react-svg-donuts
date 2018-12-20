@@ -12,6 +12,7 @@
 A ReactJS component for simple (and complex) SVG donuts.
 
 ## Demo
+
 TL;DR [here is the demo](https://codepen.io/scriptex/pen/qJvaMe)
 
 ## Dependencies
@@ -47,10 +48,7 @@ const progress = 50;
 // The value will be wrapped inside a <strong> tag.
 const renderProgress = progress => <strong>{progress}%</strong>;
 
-render(
-	<Donut progress={progress} onRender={renderProgress} />,
-	document.getElementById('demo')
-);
+render(<Donut progress={progress} onRender={renderProgress} />, document.getElementById('demo'));
 ```
 
 ## Props
@@ -129,6 +127,8 @@ render(
 4. `thickness: number (required)` - A number for the thickness of the donut
 5. `startAngle: number (required)` - A degree between -360 and 360
 6. `className: string (optional)` - Well, a custom css class name
+7. `circleProps: object(optional)` - Your custom svg circle props
+8. `textProps: object(optional)` - Your custom svg text props
 
 ## CSS
 

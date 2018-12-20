@@ -11,12 +11,7 @@ describe('Donuts', () => {
 	});
 
 	it('should render a simple donut with custom props', () => {
-		const tree = renderer.create(
-			<Donut
-				progress={50}
-				onRender={progress => <strong>{progress}%</strong>}
-			/>
-		);
+		const tree = renderer.create(<Donut progress={50} onRender={progress => <strong>{progress}%</strong>} />);
 
 		expect(tree).toMatchSnapshot();
 	});
@@ -50,6 +45,8 @@ describe('Donuts', () => {
 				]}
 				thickness={40}
 				startAngle={-90}
+				textProps={{}}
+				circleProps={{}}
 			/>
 		);
 

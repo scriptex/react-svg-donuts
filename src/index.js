@@ -16,11 +16,7 @@ const circleProps = {
 const getClassName = (p, c) => `${p}${c}`;
 const renderProgress = progress => <strong>{progress}</strong>;
 
-const Donut = ({
-	progress = 0,
-	onRender = renderProgress,
-	prefix = PREFIX
-}) => (
+const Donut = ({ progress = 0, onRender = renderProgress, prefix = PREFIX }) => (
 	<div className={getClassName(prefix, progress < 0 ? ' is--negative' : '')}>
 		<svg
 			className={getClassName(prefix, '__canvas')}
@@ -29,10 +25,7 @@ const Donut = ({
 			viewBox={`0 0 ${SIZE} ${SIZE}`}
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			<circle
-				className={getClassName(prefix, '__frame')}
-				{...circleProps}
-			/>
+			<circle className={getClassName(prefix, '__frame')} {...circleProps} />
 
 			<circle
 				className={getClassName(prefix, '__circle')}
@@ -41,11 +34,7 @@ const Donut = ({
 			/>
 		</svg>
 
-		{typeof onRender === 'function' && (
-			<div className={getClassName(prefix, '__text')}>
-				{onRender(progress)}
-			</div>
-		)}
+		{typeof onRender === 'function' && <div className={getClassName(prefix, '__text')}>{onRender(progress)}</div>}
 	</div>
 );
 
