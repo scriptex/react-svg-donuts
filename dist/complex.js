@@ -15,6 +15,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -187,7 +189,9 @@ function (_React$Component) {
           size = _this$props4.size,
           radius = _this$props4.radius,
           thickness = _this$props4.thickness,
-          className = _this$props4.className;
+          className = _this$props4.className,
+          circleProps = _this$props4.circleProps,
+          textProps = _this$props4.textProps;
       var halfSize = size / 2;
       var circumference = this.circumference(radius);
       return _react.default.createElement("div", {
@@ -199,7 +203,7 @@ function (_React$Component) {
       }, this.state.segments.map(function (segment, i) {
         return _react.default.createElement("g", {
           key: i
-        }, _react.default.createElement("circle", {
+        }, _react.default.createElement("circle", _extends({}, circleProps, {
           r: radius,
           cx: halfSize,
           cy: halfSize,
@@ -208,12 +212,12 @@ function (_React$Component) {
           strokeWidth: thickness,
           strokeDasharray: circumference,
           strokeDashoffset: _this2.strokeDashOffset(segment.value, circumference)
-        }), _react.default.createElement("text", {
+        })), _react.default.createElement("text", _extends({}, textProps, {
           x: segment.textCoords.x,
           y: segment.textCoords.y,
           dy: "3px",
           textAnchor: "middle"
-        }, "".concat(Math.round(segment.percent * 100), "%")));
+        }), "".concat(Math.round(segment.percent * 100), "%")));
       })));
     }
   }]);
@@ -231,7 +235,9 @@ ComplexDonut.propTypes = {
   })).isRequired,
   thickness: _propTypes.default.number.isRequired,
   startAngle: _propTypes.default.number,
-  className: _propTypes.default.string
+  className: _propTypes.default.string,
+  circleProps: _propTypes.default.object,
+  textProps: _propTypes.default.object
 };
 ComplexDonut.defaultProps = {
   size: 160,
@@ -239,7 +245,9 @@ ComplexDonut.defaultProps = {
   segments: [],
   thickness: 30,
   startAngle: -90,
-  className: ''
+  className: '',
+  circleProps: {},
+  textProps: {}
 };
 var _default = ComplexDonut;
 exports.default = _default;
