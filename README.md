@@ -25,7 +25,7 @@ TL;DR [here is the demo](https://codepen.io/scriptex/pen/qJvaMe)
 
 First install the package
 
-```shell
+```sh
 $ npm i react-svg-donuts
 
 # or
