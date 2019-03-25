@@ -38,3 +38,5 @@ yarn.lock
 .babelrc
 renovate.json
 webpack.config.js
+_config.yml
+_.config.yml
