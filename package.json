@@ -26,7 +26,7 @@
 		"babel-jest": "25.5.1",
 		"babel-loader": "8.1.0",
 		"css-loader": "3.5.3",
-		"html-webpack-plugin": "4.2.1",
+		"html-webpack-plugin": "4.3.0",
 		"jest": "25.5.2",
 		"prop-types": "15.7.2",
 		"react": "16.13.1",
