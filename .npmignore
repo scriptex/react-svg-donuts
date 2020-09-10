@@ -36,7 +36,10 @@ yarn.lock
 
 # Config files
 .babelrc
+.github
+.whitesource
 renovate.json
 webpack.config.js
 _config.yml
 _.config.yml
+__test__
