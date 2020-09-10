@@ -8,7 +8,9 @@
 
 # React SVG Donuts
 
-A ReactJS component for simple (and complex) SVG donuts.
+> A ReactJS component for simple (and complex) SVG donuts.
+
+**The current version depends on the Hooks API introduced with React 16. If you need legacy React support, please use a 1.x.x version.**
 
 ## Demo
 
