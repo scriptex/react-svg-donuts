@@ -6,7 +6,10 @@ let rotateAngle = 0;
 import './complex.css';
 
 class ComplexDonut extends React.Component {
-	loadTimeout = 0;
+	/**
+	 * @type {NodeJS.Timeout}
+	 */
+	loadTimeout = null;
 
 	constructor(props) {
 		super(props);
@@ -95,7 +98,7 @@ class ComplexDonut extends React.Component {
 	};
 
 	componentWillUnmount() {
-		this.clearTimeout(this.loadTimeout);
+		clearTimeout(this.loadTimeout);
 	}
 
 	render() {
