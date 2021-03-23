@@ -9,5 +9,11 @@
 	"vulnerabilityAlerts": {
 		"labels": ["security"],
 		"assignees": ["@scriptex"]
-	}
+	},
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ]
 }
