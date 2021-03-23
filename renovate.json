@@ -10,10 +10,14 @@
 		"labels": ["security"],
 		"assignees": ["@scriptex"]
 	},
-  "packageRules": [
-    {
-      "updateTypes": ["patch", "pin", "digest"],
-      "automerge": true
-    }
-  ]
+	"packageRules": [
+		{
+			"updateTypes": ["patch", "pin", "digest"],
+			"automerge": true
+		}
+	],
+	"lockFileMaintenance": {
+		"enabled": true,
+		"automerge": true
+	}
 }
