@@ -35,7 +35,7 @@
 		"style-loader": "3.3.1",
 		"webpack": "5.64.4",
 		"webpack-cli": "4.9.1",
-		"webpack-dev-server": "4.5.0"
+		"webpack-dev-server": "4.6.0"
 	},
 	"peerDependencies": {
 		"prop-types": "^15.6.2",
