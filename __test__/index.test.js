@@ -57,7 +57,7 @@ describe('Donuts', () => {
 
 		expect(tree).toMatchSnapshot();
 
-		tree.unmount();
+		tree?.unmount();
 
 		expect(tree).toMatchSnapshot();
 	});
