@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import Donut from '../src';
-import ComplexDonut from '../src/complex';
+import Donut from '../dist';
+import ComplexDonut from '../dist/complex';
 
 const renderProgress = progress => <strong>{progress}%</strong>;
 const Donuts = _ => (
