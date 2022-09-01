@@ -32,11 +32,6 @@
 	stroke: #ccc;
 }
 
-.donut__circle {
-	stroke: #000;
-	stroke-linecap: round;
-}
-
 .donut__canvas {
 	width: 100%;
 	height: 100%;
@@ -46,6 +41,8 @@
 }
 
 .donut__circle {
+	stroke: #000;
+	stroke-linecap: round;
 	transform: rotate(-90deg);
 	transform-origin: 50% 50%;
 	animation: donut-fill 2s reverse;
@@ -71,4 +68,26 @@
 
 .donut.is--negative .donut__circle {
 	transform: rotate(-90deg) scaleY(-1);
+}
+
+.donut-complex text {
+	font-family: monospace;
+	font-size: 1rem;
+	font-weight: bold;
+	text-shadow: 0 0 0.5rem #fff;
+	opacity: 0;
+	transition: opacity 0.35s ease-in-out 1s;
+}
+
+.donut-complex circle {
+	fill: none;
+	transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.donut-complex:not(.donut-complex--loaded) circle {
+	stroke-dashoffset: 0;
+}
+
+.donut-complex--loaded text {
+	opacity: 1;
 }

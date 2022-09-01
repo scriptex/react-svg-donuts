@@ -34,12 +34,19 @@ yarn.lock
 .prettierrc
 .prettierignore
 
+# Tests
+__tests__
+
+# Demo
+demo
+
 # Config files
-.babelrc
 .github
-.whitesource
-renovate.json
-webpack.config.js
 _config.yml
 _.config.yml
-__test__
+.codebeatsettings
+.eslintrc
+.whitesource
+renovate.json
+tsconfig.json
+tsconfig-lint.json

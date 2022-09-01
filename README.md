@@ -8,13 +8,13 @@
 
 # React SVG Donuts
 
-> A ReactJS component for simple (and complex) SVG donuts.
+> A React component for simple (and complex) SVG donuts.
 
-**The current version depends on the Hooks API introduced with React 16. If you need legacy React support, please use a 1.x.x version.**
+**The current version depends on the Hooks API introduced with React 16.8. If you need legacy React support, please use a 1.x.x version.**
 
 ## Demo
 
-TL;DR [here is the demo](https://codepen.io/scriptex/pen/qJvaMe)
+TL;DR [here is the demo](https://react-svg-donuts.atanas.info/)
 
 ## Dependencies
 
@@ -39,9 +39,8 @@ Then
 
 ```javascript
 import React from 'react';
-import { render } from 'react-dom';
 
-import Donut from 'react-svg-donuts';
+import { Donut, ComplexDonut } from 'react-svg-donuts';
 
 // The donut will be half filled
 const progress = 50;
@@ -49,87 +48,63 @@ const progress = 50;
 // The value will be wrapped inside a <strong> tag.
 const renderProgress = progress => <strong>{progress}%</strong>;
 
-render(<Donut progress={progress} onRender={renderProgress} />, document.getElementById('demo'));
-```
-
-## Props
-
-1. `progress: number (required)` - should be between 0 and 100 and represent the amount of the donut that should be filled. Works with negative values too (between -100 and 0).
-2. `onRender: function (required)` - any function which returns a valid React node (either React element or null).
-3. `prefix: string (optional)` - a string which will be used as prefix for all CSS classnames. Defaults to `donut`.
-
-## CSS
-
-There is a predefined stylesheet which can be used as is.
-If you want it, just import it:
-
-```css
-@import 'react-svg-donuts/dist/index.css';
-```
-
-## Bonus - Complex Donut
-
-```javascript
-import React from 'react';
-import { render } from 'react-dom';
-
-import ComplexDonut from 'react-svg-donuts/complex';
-
-render(
-	<ComplexDonut
-		size={200}
-		radius={80}
-		segments={[
-			{
-				color: '#FF8A80',
-				value: 230
-			},
-			{
-				color: '#FF80AB',
-				value: 308
-			},
-			{
-				color: '#B9F6CA',
-				value: 520
-			},
-			{
-				color: '#B388FF',
-				value: 130
-			},
-			{
-				color: '#8C9EFF',
-				value: 200
-			}
-		]}
-		thickness={40}
-		startAngle={-90}
-	/>,
-	document.getElementById('demo')
+const MyComponent = () => (
+	<>
+		<Donut progress={progress} onRender={renderProgress} />, document.getElementById('demo')
+		<ComplexDonut
+			size={200}
+			parts={[
+				{
+					color: '#FF8A80',
+					value: 230
+				},
+				{
+					color: '#FF80AB',
+					value: 308
+				},
+				{
+					color: '#B9F6CA',
+					value: 520
+				},
+				{
+					color: '#B388FF',
+					value: 130
+				},
+				{
+					color: '#8C9EFF',
+					value: 200
+				}
+			]}
+			radius={80}
+			thickness={40}
+			startAngle={-90}
+		/>
+	</>
 );
 ```
 
 ## Props
 
-1. `size: number (required)` - The size of the donut (width and height).
-2. `radius: number (required)` - The radius of the donut.
-3. `segments: array (required)` - An array of donut segments with the following shape:
-    ```javascript
-    [
-    	{
-    		value: 10,
-    		color: '#BADA55'
-    	},
-    	{
-    		value: 20,
-    		color: '#CCDDEE'
-    	}
-    ];
-    ```
-4. `thickness: number (required)` - A number for the thickness of the donut
-5. `startAngle: number (required)` - A degree between -360 and 360
-6. `className: string (optional)` - Well, a custom css class name
-7. `circleProps: object(optional)` - Your custom svg circle props
-8. `textProps: object(optional)` - Your custom svg text props
+### Donut props
+
+| Prop       | Type       | Required | Default                                   | Description                                                             |
+| ---------- | ---------- | -------- | ----------------------------------------- | ----------------------------------------------------------------------- |
+| `prefix`   | `string`   | false    | 'donut'                                   | String used as a prefix for the CSS class names                         |
+| `progress` | `number`   | false    | 0                                         | A number between 0 and 100                                              |
+| `onRender` | `Function` | false    | (progress) => <strong>{progress}</strong> | Function which runs after the Donut is rendered and returns a ReactNode |
+
+### Complex donut props
+
+| Prop        | Type                                 | Required | Default | Description                                 |
+| ----------- | ------------------------------------ | -------- | ------- | ------------------------------------------- |
+| size        | number;                              | false    | 160     | The width and height of the donut           |
+| parts       | { color: string; value: number; }[]; | false    | []      | The donut parts                             |
+| radius      | number;                              | false    | 60      | The radius of the <circle /> element        |
+| className   | string;                              | false    | ''      | Custom CSS class name for the Donut         |
+| thickness   | number;                              | false    | 30      | Stroke width of the <circle /> element      |
+| textProps   | React.SVGProps<SVGTextElement>;      | false    | {}      | Additional props for the <text /> element   |
+| startAngle  | number;                              | false    | -90     | Number between -360 and 360                 |
+| circleProps | React.SVGProps<SVGCircleElement>;    | false    | {}      | Additional props for the <circle /> element |
 
 ## CSS
 
@@ -137,7 +112,13 @@ There is a predefined stylesheet which can be used as is.
 If you want it, just import it:
 
 ```css
-@import 'react-svg-donuts/dist/complex.css';
+@import 'react-svg-donuts/src/index.css';
+```
+
+or
+
+```javascript
+import 'react-svg-donuts/src/index.css';
 ```
 
 ## LICENSE
