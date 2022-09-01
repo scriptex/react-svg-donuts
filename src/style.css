@@ -32,11 +32,6 @@
 	stroke: #ccc;
 }
 
-.donut__circle {
-	stroke: #000;
-	stroke-linecap: round;
-}
-
 .donut__canvas {
 	width: 100%;
 	height: 100%;
@@ -46,6 +41,8 @@
 }
 
 .donut__circle {
+	stroke: #000;
+	stroke-linecap: round;
 	transform: rotate(-90deg);
 	transform-origin: 50% 50%;
 	animation: donut-fill 2s reverse;
