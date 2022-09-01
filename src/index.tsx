@@ -63,9 +63,9 @@ export interface ComplexDonutProps {
 	radius?: number;
 	className?: string;
 	thickness?: number;
-	textProps?: object;
+	textProps?: React.SVGProps<SVGTextElement>;
 	startAngle?: number;
-	circleProps?: object;
+	circleProps?: React.SVGProps<SVGCircleElement>;
 }
 
 let rotateAngle = 0;
