@@ -113,8 +113,6 @@ exports[`Donuts should render a complex donut 1`] = `
 </div>
 `;
 
-exports[`Donuts should render a complex donut 2`] = `null`;
-
 exports[`Donuts should render a simple donut with custom props 1`] = `
 <div
   className="donut"

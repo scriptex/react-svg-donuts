@@ -1,31 +1,40 @@
-import React from 'react';
-import renderer, { act } from 'react-test-renderer';
+import * as React from 'react';
+import * as renderer from 'react-test-renderer';
 
-import Donut from '../src';
-import ComplexDonut from '../src/complex';
+import { Donut, ComplexDonut } from '../src';
+
+export async function wait(ms = 0) {
+	await renderer.act(() => {
+		return new Promise(resolve => {
+			setTimeout(resolve, ms);
+		});
+	});
+}
 
 describe('Donuts', () => {
 	it('should render simple donut with default props', () => {
-		const tree = renderer.create(<Donut />);
+		const tree = renderer.create(<Donut />).toJSON();
 
 		expect(tree).toMatchSnapshot();
 	});
 
 	it('should render a simple donut with custom props', () => {
-		const tree = renderer.create(<Donut progress={50} onRender={progress => <strong>{progress}%</strong>} />);
+		const tree = renderer
+			.create(<Donut progress={50} onRender={progress => <strong>{progress}%</strong>} />)
+			.toJSON();
 
 		expect(tree).toMatchSnapshot();
 	});
 
 	it('should render a complex donut', () => {
-		let tree;
+		let tree: renderer.ReactTestRenderer;
 
-		act(() => {
+		renderer.act(() => {
 			tree = renderer.create(
 				<ComplexDonut
 					size={200}
 					radius={80}
-					segments={[
+					parts={[
 						{
 							color: '#FF8A80',
 							value: 230
@@ -55,10 +64,8 @@ describe('Donuts', () => {
 			);
 		});
 
-		expect(tree).toMatchSnapshot();
+		wait(1000);
 
-		tree?.unmount();
-
-		expect(tree).toMatchSnapshot();
+		expect(tree!.toJSON()).toMatchSnapshot();
 	});
 });
