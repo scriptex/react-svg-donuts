@@ -7,7 +7,7 @@
 		"build": "parcel build index.html"
 	},
 	"dependencies": {
-		"scriptex-socials": "1.5.1"
+		"scriptex-socials": "1.6.0"
 	},
 	"alias": {
 		"react": "../node_modules/react",
