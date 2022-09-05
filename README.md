@@ -1,16 +1,31 @@
-[![GitHub release](https://img.shields.io/github/release/scriptex/react-svg-donuts.svg)](https://github.com/scriptex/react-svg-donuts/releases/latest)
-[![GitHub issues](https://img.shields.io/github/issues/scriptex/react-svg-donuts.svg)](https://github.com/scriptex/react-svg-donuts/issues)
-[![GitHub last commit](https://img.shields.io/github/last-commit/scriptex/react-svg-donuts.svg)](https://github.com/scriptex/react-svg-donuts/commits/master)
-[![Build Status](https://travis-ci.com/scriptex/react-svg-donuts.svg?branch=master)](https://travis-ci.com/scriptex/react-svg-donuts)
-[![npm](https://img.shields.io/npm/dt/react-svg-donuts.svg)](https://www.npmjs.com/package/react-svg-donuts)
-[![npm](https://img.shields.io/npm/v/react-svg-donuts.svg)](https://www.npmjs.com/package/react-svg-donuts)
-[![Analytics](https://ga-beacon.appspot.com/UA-83446952-1/github.com/scriptex/react-svg-donuts/README.md)](https://github.com/scriptex/react-svg-donuts/)
+[![Travis CI](https://travis-ci.com/scriptex/react-svg-donuts.svg?branch=master)](https://travis-ci.com/scriptex/react-svg-donuts)
+[![Github Build](https://github.com/scriptex/react-svg-donuts/workflows/Build/badge.svg)](https://github.com/scriptex/react-svg-donuts/actions?query=workflow%3ABuild)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/34d3d75710534dc6a38c3584a1dcd068)](https://www.codacy.com/gh/scriptex/react-svg-donuts/dashboard?utm_source=github.com&utm_medium=referral&utm_content=scriptex/react-svg-donuts&utm_campaign=Badge_Grade)
+[![Codebeat Badge](https://codebeat.co/badges/d765a4c8-2c0e-44f2-89c3-fa364fdc14e6)](https://codebeat.co/projects/github-com-scriptex-react-svg-donuts-master)
+[![CodeFactor Badge](https://www.codefactor.io/repository/github/scriptex/react-svg-donuts/badge)](https://www.codefactor.io/repository/github/scriptex/react-svg-donuts)
+[![DeepScan grade](https://deepscan.io/api/teams/3574/projects/5257/branches/40799/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=3574&pid=5257&bid=40799)
+[![Analytics](https://ga-beacon-361907.ew.r.appspot.com/UA-83446952-1/github.com/scriptex/react-svg-donuts/README.md?pixel)](https://github.com/scriptex/react-svg-donuts/)
 
 # React SVG Donuts
 
 > A React component for simple (and complex) SVG donuts.
 
 **The current version depends on the Hooks API introduced with React 16.8. If you need legacy React support, please use a 1.x.x version.**
+
+## Visitor stats
+
+![GitHub stars](https://img.shields.io/github/stars/scriptex/react-svg-donuts?style=social)
+![GitHub forks](https://img.shields.io/github/forks/scriptex/react-svg-donuts?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/scriptex/react-svg-donuts?style=social)
+![GitHub followers](https://img.shields.io/github/followers/scriptex?style=social)
+
+## Code stats
+
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/scriptex/react-svg-donuts)
+![GitHub repo size](https://img.shields.io/github/repo-size/scriptex/react-svg-donuts?style=plastic)
+![GitHub language count](https://img.shields.io/github/languages/count/scriptex/react-svg-donuts?style=plastic)
+![GitHub top language](https://img.shields.io/github/languages/top/scriptex/react-svg-donuts?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/scriptex/react-svg-donuts?style=plastic)
 
 ## Demo
 
