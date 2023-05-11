@@ -59,7 +59,7 @@
 		"ts-jest": "29.1.0",
 		"tslib": "2.5.0",
 		"typescript": "5.0.4",
-		"yarn-deduplicate": "6.0.1"
+		"yarn-deduplicate": "6.0.2"
 	},
 	"peerDependencies": {
 		"react": "^16.9.0 || ^17 || ^18",
