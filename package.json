@@ -40,7 +40,7 @@
 	"dependencies": {},
 	"devDependencies": {
 		"@types/jest": "29.5.11",
-		"@types/react": "18.2.45",
+		"@types/react": "18.2.46",
 		"@types/react-dom": "18.2.18",
 		"@types/react-test-renderer": "18.0.7",
 		"@typescript-eslint/eslint-plugin": "6.16.0",
@@ -66,7 +66,7 @@
 		"react-dom": "^16.9.0 || ^17 || ^18"
 	},
 	"resolutions": {
-		"@types/react": "18.2.45"
+		"@types/react": "18.2.46"
 	},
 	"jest": {
 		"moduleFileExtensions": [
