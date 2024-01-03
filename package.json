@@ -45,7 +45,7 @@
 		"@types/react-test-renderer": "18.0.7",
 		"@typescript-eslint/eslint-plugin": "6.17.0",
 		"@typescript-eslint/parser": "6.17.0",
-		"cssnano": "6.0.2",
+		"cssnano": "6.0.3",
 		"eslint": "8.56.0",
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-jest": "27.6.1",
