@@ -52,7 +52,7 @@
 		"eslint-plugin-react": "7.35.0",
 		"eslint-plugin-react-hooks": "4.6.2",
 		"jest": "29.7.0",
-		"postcss": "8.4.41",
+		"postcss": "8.4.42",
 		"react": "18.3.1",
 		"react-dom": "18.3.1",
 		"react-test-renderer": "18.3.1",
