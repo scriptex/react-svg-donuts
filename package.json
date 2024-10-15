@@ -57,7 +57,7 @@
 		"react-dom": "18.3.1",
 		"react-test-renderer": "18.3.1",
 		"ts-jest": "29.2.5",
-		"tslib": "2.7.0",
+		"tslib": "2.8.0",
 		"typescript": "5.6.3",
 		"yarn-deduplicate": "6.0.2"
 	},
