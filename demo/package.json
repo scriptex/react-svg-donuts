@@ -14,7 +14,7 @@
 		"react-dom": "../node_modules/react-dom"
 	},
 	"devDependencies": {
-		"parcel": "2.13.2",
+		"parcel": "2.13.3",
 		"typescript": "5.7.2"
 	}
 }
