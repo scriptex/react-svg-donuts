@@ -1,36 +1,28 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import * as React from 'react';
-import * as renderer from 'react-test-renderer';
+import { render, waitFor } from '@testing-library/react';
 
 import { Donut, ComplexDonut } from '../src';
 
-export async function wait(ms = 0) {
-	await renderer.act(() => {
-		return new Promise(resolve => {
-			setTimeout(resolve, ms);
-		});
-	});
-}
-
 describe('Donuts', () => {
 	it('should render simple donut with default props', () => {
-		const tree = renderer.create(<Donut />).toJSON();
+		const { asFragment } = render(<Donut />);
 
-		expect(tree).toMatchSnapshot();
+		expect(asFragment()).toMatchSnapshot();
 	});
 
 	it('should render a simple donut with custom props', () => {
-		const tree = renderer
-			.create(<Donut progress={50} onRender={progress => <strong>{progress}%</strong>} />)
-			.toJSON();
+		const { asFragment } = render(<Donut progress={50} onRender={progress => <strong>{progress}%</strong>} />);
 
-		expect(tree).toMatchSnapshot();
+		expect(asFragment()).toMatchSnapshot();
 	});
 
-	it('should render a complex donut', () => {
-		let tree: renderer.ReactTestRenderer;
-
-		renderer.act(() => {
-			tree = renderer.create(
+	it('should render a complex donut', async () => {
+		const { asFragment } = await waitFor(() =>
+			render(
 				<ComplexDonut
 					size={200}
 					radius={80}
@@ -61,11 +53,9 @@ describe('Donuts', () => {
 					textProps={{}}
 					circleProps={{}}
 				/>
-			);
-		});
+			)
+		);
 
-		wait(1000);
-
-		expect(tree!.toJSON()).toMatchSnapshot();
+		expect(asFragment()).toMatchSnapshot();
 	});
 });
