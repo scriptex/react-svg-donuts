@@ -10,6 +10,7 @@
 		"scriptex-socials": "1.8.0"
 	},
 	"alias": {
+		"process": false,
 		"react": "../node_modules/react",
 		"react-dom": "../node_modules/react-dom"
 	},
