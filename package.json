@@ -42,7 +42,7 @@
 		"@testing-library/dom": "10.4.0",
 		"@testing-library/react": "16.3.0",
 		"@types/jest": "29.5.14",
-		"@types/react": "19.1.4",
+		"@types/react": "19.1.5",
 		"@types/react-dom": "19.1.5",
 		"@typescript-eslint/eslint-plugin": "8.32.1",
 		"@typescript-eslint/parser": "8.32.1",
@@ -57,7 +57,7 @@
 		"postcss": "8.5.3",
 		"react": "19.1.0",
 		"react-dom": "19.1.0",
-		"ts-jest": "29.3.2",
+		"ts-jest": "29.3.4",
 		"tslib": "2.8.1",
 		"typescript": "5.8.3",
 		"yarn-deduplicate": "6.0.2"
