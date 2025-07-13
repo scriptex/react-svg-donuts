@@ -7,7 +7,7 @@
 		"build": "parcel build index.html"
 	},
 	"dependencies": {
-		"scriptex-socials": "1.8.0"
+		"scriptex-socials": "1.9.1"
 	},
 	"alias": {
 		"process": false,
@@ -15,7 +15,7 @@
 		"react-dom": "../node_modules/react-dom"
 	},
 	"devDependencies": {
-		"@babel/core": "7.27.7",
+		"@babel/core": "7.28.0",
 		"@babel/plugin-transform-react-jsx": "7.27.1",
 		"parcel": "2.15.4",
 		"process": "0.11.10",
