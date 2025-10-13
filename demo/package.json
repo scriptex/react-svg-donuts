@@ -19,6 +19,6 @@
 		"@babel/plugin-transform-react-jsx": "7.27.1",
 		"parcel": "2.16.0",
 		"process": "0.11.10",
-		"typescript": "5.9.2"
+		"typescript": "5.9.3"
 	}
 }
