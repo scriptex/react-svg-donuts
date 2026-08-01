@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"allowJs": false,
 		"allowSyntheticDefaultImports": true,
-		"baseUrl": "./",
+		"rootDir": "./src",
 		"checkJs": false,
 		"declaration": true,
 		"emitDecoratorMetadata": true,
@@ -13,7 +13,7 @@
 		"jsx": "react",
 		"lib": ["DOM", "ESNext"],
 		"module": "ESNext",
-		"moduleResolution": "Node",
+		"moduleResolution": "bundler",
 		"noEmit": false,
 		"noEmitHelpers": true,
 		"noEmitOnError": true,
@@ -26,7 +26,7 @@
 		"removeComments": false,
 		"sourceMap": true,
 		"strictNullChecks": true,
-		"target": "ES5"
+		"target": "ESNext"
 	},
 	"include": ["src/**/*.ts", "src/**/*.tsx"],
 	"exclude": ["node_modules"]
